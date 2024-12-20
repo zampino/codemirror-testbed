@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@codemirror/language-data": "6.5.1",
+    "@lezer/highlight": "1.2.1",
+    "@codemirror/language": "6.10.7"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}

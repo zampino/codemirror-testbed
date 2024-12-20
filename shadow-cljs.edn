@@ -1,0 +1,22 @@
+{:dev-http {8080 "public"}
+ :builds {:ui
+          {:target :esm
+           :runtime :browser
+           :output-dir "public/js"
+           :compiler-options {:source-map true}
+           :modules {:ui {:init-fn main/boot}}
+           :js-options {:output-feature-set :es8}}
+
+          :language-data
+          {:target :esm
+           :runtime :browser
+           :output-dir "public/cas"
+           :compiler-options {:source-map true}
+           :modules {:language-data {:exports {languages language-data/ls}}}
+           :js-options {:output-feature-set :es8
+                        ;; Closure compilation failed with 1 errors
+                        ;; --- node_modules/@nextjournal/blank/node_modules/@lezer/php/dist/index.cjs:49
+                        ;; Illegal redeclared variable: global
+                        :resolve {"@lezer/php" {:target :global :global "PHP"}}}
+           :build-hooks [(shadow.cljs.build-report/hook
+                           {:output-to "report.html" :print-table true})]}}}

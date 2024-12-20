@@ -1,0 +1,12 @@
+.DS_Store
+.cpcache
+.idea
+.nrepl-port
+.shado-cljs
+*.iml
+node_modules
+public
+build
+yarn-error.log
+.shadow-cljs
+report.html
